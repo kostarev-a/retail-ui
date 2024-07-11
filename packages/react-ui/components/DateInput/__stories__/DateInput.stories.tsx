@@ -355,6 +355,29 @@ WithWidth.parameters = {
   },
 };
 
+export const WithIcon: Story = () => <DateInput withIcon value="01.02.2017" />
+  WithIcon.storyName = 'with icon';
+  
+  WithIcon.parameters = {
+    creevey: {
+      tests: {
+        async idle() {
+          await this.expect(await this.takeScreenshot()).to.matchImage('idle');
+        },
+        async focus() {
+          await this.browser.executeScript(function () {
+            const input = window.document.querySelector("[data-comp-name~='DateInput']");
+            if (input instanceof HTMLElement) {
+              input.focus();
+            }
+          });
+          await this.expect(await this.takeScreenshot()).to.matchImage('focus');
+        },
+      },
+    },
+  };
+  
+
 export const BlurAlwaysAfterChange: Story = () => <DateInputLastEvent />;
 BlurAlwaysAfterChange.storyName = 'blur always after change';
 
