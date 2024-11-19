@@ -147,22 +147,22 @@ export const globalTypes = {
     name: 'Theme',
     description: 'React UI Theme',
     defaultValue: 'LIGHT_THEME',
-    toolbar: {
-      icon: 'paintbrush',
-      items: Object.keys(themes),
-      showName: true,
-    },
+    // toolbar: {
+    //   icon: 'paintbrush',
+    //   items: Object.keys(themes),
+    //   showName: true,
+    // },
   },
   locale: {
     name: 'Locale',
     description: 'React UI Locale',
     defaultValue: 'ru',
-    toolbar: {
-      icon: 'globe',
-      items: Object.keys(toolbarItems),
-      showName: true,
-      dynamicTitle: true,
-    },
+    // toolbar: {
+    //   icon: 'globe',
+    //   items: Object.keys(toolbarItems),
+    //   showName: true,
+    //   dynamicTitle: true,
+    // },
   },
 };
 
@@ -201,4 +201,5 @@ addons.setConfig({
     iconColor: '#029CFD',
     decorators: [ThemeDecodator, LocaleDecorator, FeatureFlagsDecorator],
   } as LiveConfig,
+  showToolbar: false,
 });

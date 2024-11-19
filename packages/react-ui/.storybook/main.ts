@@ -20,12 +20,12 @@ const config: StorybookConfig = {
     '@storybook/addon-a11y',
     '@storybook/blocks',
     '@storybook/addon-docs',
-    {
-      name: '@storybook/addon-essentials',
-      options: {
-        docsMode: true,
-      },
-    },
+    // {
+    //   name: '@storybook/addon-essentials',
+    //   options: {
+    //     docsMode: true,
+    //   },
+    // },
     'storybook-addon-multiselect',
   ],
   framework: {
