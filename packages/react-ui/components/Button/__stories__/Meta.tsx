@@ -15,8 +15,6 @@ export const Meta = ({ of }: { of: ModuleExports }) => {
     context.referenceMeta(of, true);
   }
 
-  context.channel.on('globalsUpdated', console.log);
-
   return (
     <Sticky side="top">
       <div style={{ padding: '20px', margin: '0 -20px', background: 'white' }}>

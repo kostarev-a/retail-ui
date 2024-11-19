@@ -20,7 +20,7 @@ module.exports = async ({ config }) => {
     .slice(1)
     .filter((r) => r.test && !r.test.test('.css'));
 
-  console.dir(config.module.rules, { depth: null });
+  // console.dir(config.module.rules, { depth: null });
 
   config.module.rules = [
     ...filteredStorybooksWebpackRules,
