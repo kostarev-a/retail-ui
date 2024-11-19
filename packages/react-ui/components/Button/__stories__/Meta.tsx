@@ -3,6 +3,7 @@ import type { ModuleExports } from '@storybook/types';
 import React, { useContext } from 'react';
 
 import { Sticky } from '../../Sticky';
+import { Select } from '../../Select';
 import { Switcher } from '../../Switcher';
 import { Gapped } from '../../Gapped';
 import { Toggle } from '../../Toggle';
@@ -20,8 +21,8 @@ export const Meta = ({ of }: { of: ModuleExports }) => {
     <Sticky side="top">
       <div style={{ padding: '20px', margin: '0 -20px', background: 'white' }}>
         <Gapped>
-          <Switcher
-            items={['LIGHT_THEME', 'DARK_THEME']}
+          <Select
+            items={['LIGHT_THEME', 'DARK_THEME', 'LIGHT_THEME_2022_0', 'DARK_THEME_2022_0']}
             //@ts-expect-error: store is not public
             value={context.store.globals.globals.theme}
             onValueChange={(value) => {
