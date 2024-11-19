@@ -1,6 +1,6 @@
 import { setFilter } from '@skbkontur/react-props2attrs';
 import { findAmongParents } from '@skbkontur/react-sorge/lib';
-import { withCreevey } from 'creevey/addon';
+// import { withCreevey } from 'creevey/addon';
 import React from 'react';
 import { Preview } from '@storybook/react';
 
@@ -28,7 +28,7 @@ const preview: Preview = {
       </div>
     ),
     FeatureFlagsDecorator,
-    withCreevey(),
+    // withCreevey(),
   ],
 
   parameters: {

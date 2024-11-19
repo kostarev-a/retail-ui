@@ -20,6 +20,8 @@ module.exports = async ({ config }) => {
     .slice(1)
     .filter((r) => r.test && !r.test.test('.css'));
 
+  console.dir(config.module.rules, { depth: null });
+
   config.module.rules = [
     ...filteredStorybooksWebpackRules,
     {
@@ -57,24 +59,24 @@ module.exports = async ({ config }) => {
     { test: /\.(jpe?g|png|gif|svg)$/i, loader: 'url-loader' },
   ];
 
-  config.module.rules
-    .filter((rule) => rule.test?.toString().includes('.mdx'))
-    .forEach((rule) => {
-      if (rule.use?.[0]?.loader.includes('mdx2-csf')) {
-        rule.use[0].options.mdxCompileOptions.remarkPlugins.push(remarkMdxCodeMeta);
-      }
-    });
+  // config.module.rules
+  //   .filter((rule) => rule.test?.toString().includes('.mdx'))
+  //   .forEach((rule) => {
+  //     if (rule.use?.[0]?.loader.includes('mdx2-csf')) {
+  //       rule.use[0].options.mdxCompileOptions.remarkPlugins.push(remarkMdxCodeMeta);
+  //     }
+  //   });
 
-  config.plugins.push(
-    new ForkTsCheckerWebpackPlugin({
-      typescript: {
-        configFile: path.resolve(__dirname, '../prod.tsconfig.json'),
-        configOverwrite: {
-          exclude: ['**/*.docs.stories.tsx'],
-        },
-      },
-    }),
-  );
+  // config.plugins.push(
+  //   new ForkTsCheckerWebpackPlugin({
+  //     typescript: {
+  //       configFile: path.resolve(__dirname, '../prod.tsconfig.json'),
+  //       configOverwrite: {
+  //         exclude: ['**/*.docs.stories.tsx'],
+  //       },
+  //     },
+  //   }),
+  // );
 
   // NOTE Need to allow write tests inside stories for Creevey
   config.node = { __filename: true };

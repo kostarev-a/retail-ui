@@ -1,7 +1,7 @@
 const isTestEnv = Boolean(process.env.STORYBOOK_REACT_UI_TEST);
 
 module.exports = async ({ config }) => {
-  config.resolve.extensions.unshift('.ts', '.tsx');
+  // config.resolve.extensions.unshift('.ts', '.tsx');
 
   if (isTestEnv) {
     config.entry.unshift('@skbkontur/react-props2attrs');
@@ -10,7 +10,9 @@ module.exports = async ({ config }) => {
   config.entry.unshift('core-js/stable');
 
   // storybook's rule for css doesn't handle .mdx
-  const filteredStorybooksWebpackRules = (config.module.rules || []).filter((r) => r.test && r.test.test('.mdx'));
+  // const filteredStorybooksWebpackRules = (config.module.rules || []).filter((r) => r.test && r.test.test('.mdx'));
+
+  const filteredStorybooksWebpackRules = (config.module.rules || []).filter((r) => r.test && !r.test.test('.css'));
 
   config.module.rules = [
     ...filteredStorybooksWebpackRules,
@@ -18,12 +20,12 @@ module.exports = async ({ config }) => {
       test: /\.(ts|tsx)$/,
       exclude: /node_modules/,
       use: [
-        {
-          loader: 'ts-loader',
-          options: {
-            transpileOnly: true,
-          },
-        },
+        // {
+        //   loader: 'ts-loader',
+        //   options: {
+        //     transpileOnly: true,
+        //   },
+        // },
         {
           loader: 'string-replace-loader',
           options: {
@@ -54,6 +56,8 @@ module.exports = async ({ config }) => {
       loader: 'file-loader',
     },
   ];
+
+  console.dir(config.module.rules, { depth: null });
 
   return config;
 };

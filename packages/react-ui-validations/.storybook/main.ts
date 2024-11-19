@@ -8,10 +8,15 @@ const config: StorybookConfig = {
     docsMode: isDocsEnv,
   },
   addons: [
-    'creevey',
+    // '@skbkontur/storybook-addon-live-examples',
+    // 'creevey',
     'storybook-addon-multiselect',
     '@storybook/blocks',
     '@storybook/addon-docs',
+    // {
+    //   name: '@storybook/addon-docs',
+    //   options: { configureJSX: true },
+    // },
     {
       name: '@storybook/addon-essentials',
       options: {
@@ -22,6 +27,7 @@ const config: StorybookConfig = {
   framework: {
     name: '@storybook/react-webpack5',
     options: {
+      legacyRootApi: true,
       fastRefresh: true,
       strictMode: true,
     },

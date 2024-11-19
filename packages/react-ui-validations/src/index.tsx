@@ -1,33 +1,30 @@
 import { text, tooltip } from './ErrorRenderer';
-import {
-  ValidationContainer,
-  ValidationContainerProps,
+import { ValidationContainer } from './ValidationContainer';
+import type {
   ValidationSettings,
   ValidateArgumentType,
+  ValidationContainerProps,
   ScrollOffset,
 } from './ValidationContainer';
-import { TooltipPosition, ValidationTooltip, ValidationTooltipProps } from './ValidationTooltip';
-import {
+import { ValidationTooltip } from './ValidationTooltip';
+import type { TooltipPosition, ValidationTooltipProps } from './ValidationTooltip';
+import type {
+  ValidationLevel,
+  TextPosition,
   RenderErrorMessage,
   Validation,
   ValidationBehaviour,
-  ValidationLevel,
-  TextPosition,
 } from './ValidationWrapperInternal';
-import { ValidationWrapper, ValidationInfo, ValidationWrapperProps } from './ValidationWrapper';
+import { ValidationWrapper } from './ValidationWrapper';
+import type { ValidationInfo, ValidationWrapperProps } from './ValidationWrapper';
+import type { ValidationContextType, ValidationContextWrapperProps } from './ValidationContextWrapper';
+import { ValidationContext, ValidationContextWrapper, ValidationContextSettings } from './ValidationContextWrapper';
 import {
-  ValidationContext,
-  ValidationContextType,
-  ValidationContextWrapper,
-  ValidationContextWrapperProps,
-  ValidationContextSettings,
-} from './ValidationContextWrapper';
-import {
-  ValidationsFeatureFlags,
   validationsFeatureFlagsDefault,
   ValidationsFeatureFlagsContext,
   getFullValidationsFlagsContext,
 } from './utils/featureFlagsContext';
+import type { ValidationsFeatureFlags } from './utils/featureFlagsContext';
 import { FocusMode } from './FocusMode';
 
 export {
