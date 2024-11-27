@@ -1089,6 +1089,12 @@ export class DefaultTheme {
   public static mobileDateSelectLineHeight = '20px';
   public static mobileCalendarWrapperHeight = '304px';
   //#endregion
+  //#region DateRangePicker
+  public static calendarRangeCellBg = '#f0f0f0';
+  public static calendarRangeCellHoverBg = 'rgba(0, 0, 0, 0.1)';
+  public static calendarRangeCellEndBg = '#1e1e1e';
+  public static calendarRangeCellEndColor = 'white';
+  //#endregion
   //#region DateSelect
   public static get dateSelectMenuBg() {
     return this.bgSecondary;
